@@ -39,7 +39,7 @@ const employeeSchema = new Schema({
 
 })
 
-//Employee Schema
+//User Schema
 const userSchema = new Schema({
     user: String,
     password: String,

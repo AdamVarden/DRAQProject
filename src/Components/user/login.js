@@ -2,9 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import Form from 'react-bootstrap/Form';
 
-import { Container, Row, Col, FormGroup, Label, Input, } from 'reactstrap';
-import { useHistory } from "react-router-dom";
-import View from '../view';
+import { Col, FormGroup, Label, Input } from 'reactstrap';
 
 class LogIn extends React.Component {
 
@@ -29,7 +27,6 @@ class LogIn extends React.Component {
 
     
     handleSubmit(e) {
-        alert(this.state.User + "   " + this.state.Password );
         e.preventDefault();
 
         const userObject = {
@@ -63,9 +60,9 @@ class LogIn extends React.Component {
 
     render() {
         return (
-            <div className="App">
+            <div  className="App">
                 <h3 >User Login</h3>
-                <div>
+                <div >
                     <Form onSubmit={this.handleSubmit}>
 
                         {/* User Name Input */}

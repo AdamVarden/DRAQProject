@@ -9,7 +9,7 @@ class Add extends React.Component {
     constructor(props) {
 
         super(props);
-        this.state = {EmpID:'', FirstName: '',Surname:'', Department: '', Position: '', Salary: '',_id:'', UpdateDate:'' };
+        this.state = {EmpID:'', FirstName: '',Surname:'', Department: '', Position: '', Salary: '',_id:'', UpdateDate:'Unedited' };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleEmpIDChange = this.handleEmpIDChange.bind(this);
         this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
@@ -54,7 +54,6 @@ class Add extends React.Component {
     }   
 
     handleSubmit(e) {
-        alert(this.state.EmpID + "   " + this.state.FirstName + "   " + this.state.Surname + "   " + this.state.Department + "  " + this.state.Position + " " + this.state.Salary);
         e.preventDefault();
 
         const employeeObject = {

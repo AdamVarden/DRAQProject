@@ -27,30 +27,34 @@ class EmployeeDetails extends React.Component {
 
     render() {
         return (
-            <Table align = "center">
-                <TableHead align = "center">
-                    <TableRow align = "center" >
-                        <TableCell align = "center">Employee ID</TableCell>
-                        <TableCell align = "center">First Name</TableCell>
-                        <TableCell align = "center">Surname</TableCell>
-                        <TableCell align = "center">Department</TableCell>
-                        <TableCell align = "center">Position</TableCell>
-                        <TableCell align = "center">Salary</TableCell>
-                        <TableCell align = "center">Update</TableCell>
-                        <TableCell align = "center">Delete</TableCell>                                                
+            <Table style={{backgroundColor:"white"}} align = "center">
+                <TableHead  align = "center">
+                    <TableRow style={{backgroundColor:"grey"}} align = "center" >
+                        <TableCell style={{fontWeight:"bold"}}  align = "center">Employee ID</TableCell>
+                        <TableCell style={{fontWeight:"bold"}} align = "center">First Name</TableCell>
+                        <TableCell style={{fontWeight:"bold"}} align = "center">Surname</TableCell>
+                        <TableCell style={{fontWeight:"bold"}} align = "center">Department</TableCell>
+                        <TableCell style={{fontWeight:"bold"}} align = "center">Position</TableCell>
+                        <TableCell style={{fontWeight:"bold"}} align = "center">Salary</TableCell>
+                        <TableCell style={{fontWeight:"bold"}} align = "center">Update</TableCell>
+                        <TableCell style={{fontWeight:"bold"}} align = "center">Delete</TableCell>                                                
+                        <TableCell style={{fontWeight:"bold"}} align = "center">Update Date</TableCell>                                                
+                    
                     </TableRow>
                 </TableHead>
 
                 <TableBody align = "center">
-                    <TableRow align = "center">
-                        <TableCell align = "center">{this.props.employee.empID}</TableCell>                       
-                        <TableCell align = "center">{this.props.employee.firstName}</TableCell>
-                        <TableCell align = "center">{this.props.employee.surname}</TableCell>
-                        <TableCell align = "center">{this.props.employee.department}</TableCell>
-                        <TableCell align = "center">{this.props.employee.position}</TableCell>
-                        <TableCell align = "center">€{this.props.employee.salary}</TableCell>
-                        <TableCell align = "center"><Link to={"/update/"+this.props.employee._id} className = "btn btn-dark">Update</Link></TableCell> 
-                        <TableCell align = "center"><Button variant="danger" onClick={this.DeleteEmployee}>Delete</Button></TableCell> 
+                    <TableRow style={{backgroundColor:"black"}} align = "center">
+                        <TableCell style={{color:"white"}} align = "center">{this.props.employee.empID}</TableCell>                       
+                        <TableCell style={{color:"white"}} align = "center">{this.props.employee.firstName}</TableCell>
+                        <TableCell style={{color:"white"}} align = "center">{this.props.employee.surname}</TableCell>
+                        <TableCell style={{color:"white"}} align = "center">{this.props.employee.department}</TableCell>
+                        <TableCell style={{color:"white"}} align = "center">{this.props.employee.position}</TableCell>
+                        <TableCell style={{color:"white"}} align = "center">€{this.props.employee.salary}</TableCell>
+                        <TableCell style={{color:"white"}} align = "center"><Link to={"/update/"+this.props.employee._id} className = "btn btn-dark">Update</Link></TableCell> 
+                        <TableCell style={{color:"white"}} align = "center"><Button variant="danger" onClick={this.DeleteEmployee}>Delete</Button></TableCell> 
+                        <TableCell style={{color:"white"}} align = "center">{this.props.employee.updateDate}</TableCell>
+                    
                     </TableRow>
 
                 </TableBody>

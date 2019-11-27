@@ -26,7 +26,6 @@ class AddUser extends React.Component {
     }
 
     handleSubmit(e) {
-        alert(this.state.User + "   " + this.state.Password );
         e.preventDefault();
 
         const userObject = {

@@ -41,7 +41,7 @@ class LogIn extends React.Component {
             if (response.data.length > 0) 
             {
                 console.log("Logged In");
-
+                this.props.history.push('/home')
             }
             else
             {
@@ -60,7 +60,7 @@ class LogIn extends React.Component {
 
     render() {
         return (
-            <div  className="App">
+            <div  className="logIn">
                 <h3 >User Login</h3>
                 <div >
                     <Form onSubmit={this.handleSubmit}>

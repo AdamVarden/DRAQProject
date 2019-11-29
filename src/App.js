@@ -14,6 +14,8 @@ import Home from './Components/home';
 import Update from './Components/update';
 import AddUser from './Components/user/adduser';
 import LogIn from './Components/user/login';
+import FindUserData from './Components/user/findUserData';
+import ChangeUserDetails from './Components/user/changeUserDetails';
 
 class App extends React.Component {
 
@@ -34,9 +36,13 @@ class App extends React.Component {
                 <NavDropdown.Item href="/view">Employees</NavDropdown.Item>
                 
               </NavDropdown>
-              <Nav.Item>
-                <Nav.Link href="/user/adduser">Add User</Nav.Link>
-              </Nav.Item>
+
+              <NavDropdown title="User Links" id="basic-nav-dropdown">
+                <NavDropdown.Item href="/user/adduser">Add User</NavDropdown.Item>
+                <NavDropdown.Item href="/user/findUserData">Update User</NavDropdown.Item>
+                
+              </NavDropdown>   
+
               <Nav.Item>
                 <Nav.Link href="/">Log Out</Nav.Link>
               </Nav.Item>
@@ -49,6 +55,9 @@ class App extends React.Component {
             <Route path="/add" component={Add} />
             <Route path="/user/adduser" component={AddUser} />
             <Route path="/update/:id" component={Update} />
+            <Route path="/user/findUserData" component={FindUserData} />
+            <Route path="/user/changeUserDetails/:user" component={ChangeUserDetails} />
+
           </Switch>
 
         </div>

@@ -10,7 +10,7 @@ const Schema = mongoose.Schema;
 
 const mongoDB = 'mongodb+srv://admin:admin@cluster0-ky0ff.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true });
-
+mongoose.set('useFindAndModify', false);
 app.use(cors());
 
 app.use(function (req, res, next) {
@@ -92,11 +92,35 @@ app.get('/api/users/:user/:password',(req,res)=>{
     });
 })
 
+//Getting the User Information
+app.get('/api/users/:user', (req, res) => {
+    console.log(req.params.user);
+
+    UserModel.find({'user':req.params.user}, (error, data) => {
+        res.json(data);
+    })
+})
+
+
+
+//User Update
+app.put('/api/users/:user', (req, res) => {
+    console.log("Edit " + req.params.user);
+    console.log(req.body); 
+    UserModel.findOneAndUpdate(req.params.user,
+        req.body,
+        { new: true },
+        (error, data) => {
+            res.json(data);
+        }
+    )
+    
+})
 
 
 
 
-
+//------------------------------------------------------------
 
 
 

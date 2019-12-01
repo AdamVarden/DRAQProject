@@ -10,17 +10,16 @@ class LogIn extends React.Component {
     constructor(props) {
 
         super(props);
-        this.state = { User: ''};
+        this.state = { User: '' };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUserChange = this.handleUserChange.bind(this);
 
     }
 
+    //Handling the Submits
     handleUserChange(e) {
         this.setState({ User: e.target.value });
-
     }
-
 
     handleSubmit(e) {
         e.preventDefault();
@@ -32,13 +31,14 @@ class LogIn extends React.Component {
 
         Axios.get('http://localhost:4000/api/users/' + this.state.User, userObject)
             .then(response => {
-
+                //Making sure an array exists and pushes to the changeUserDetails
                 if (response.data.length > 0) {
 
                     this.props.history.push('/user/changeUserDetails/' + this.state.User)
                 }
+                //Resets the state and Alerts the user
                 else {
-                    alert("Not logged in");
+                    alert("Not a Valid Username");
                     this.setState({
                         User: '',
 
@@ -50,11 +50,11 @@ class LogIn extends React.Component {
 
     }
 
-
+    //Getting User Details
     render() {
         return (
             <div className="App">
-                <h3 >User name Please</h3>
+                <h3 >User Name </h3>
                 <div >
                     <Form onSubmit={this.handleSubmit}>
 

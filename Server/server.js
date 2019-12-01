@@ -43,15 +43,15 @@ const employeeSchema = new Schema({
 const userSchema = new Schema({
     user: String,
     password: String,
-
-
 })
 
 const EmployeeModel = mongoose.model('employee', employeeSchema);
 const UserModel = mongoose.model('user', userSchema);
 
-//Adding User
-app.post('/api/user', (req, res) => {
+
+//-----------------------------------Users-------------------------------
+//Adding User to the database.
+app.post('/api/users', (req, res) => {
     console.log('post Sucessfull');
     console.log(req.body)
     console.log(req.body.user);    
@@ -67,7 +67,7 @@ app.post('/api/user', (req, res) => {
     res.send('User added');
 })
 
-app.get('/api/user', (req, res) => {
+app.get('/api/users', (req, res) => {
 
     UserModel.find((err, data) => {
         res.json({ employees: data });
@@ -75,8 +75,7 @@ app.get('/api/user', (req, res) => {
 
 })
 
-
-//Searching
+//Creating new User Account
 app.post('/api/users',(req,res)=>
 {
     console.log(req.params.name);
@@ -85,6 +84,7 @@ app.post('/api/users',(req,res)=>
     })
 })
 
+//Log In
 app.get('/api/users/:user/:password',(req,res)=>{
     console.log(req.params.user);
     UserModel.find({'user':req.params.user,'password':req.params.password},(error,data)=>{
@@ -92,7 +92,7 @@ app.get('/api/users/:user/:password',(req,res)=>{
     });
 })
 
-//Getting the User Information
+//Verifying User name exists
 app.get('/api/users/:user', (req, res) => {
     console.log(req.params.user);
 
@@ -103,7 +103,7 @@ app.get('/api/users/:user', (req, res) => {
 
 
 
-//User Update
+//User Update name and password
 app.put('/api/users/:user', (req, res) => {
     console.log("Edit " + req.params.user);
     console.log(req.body); 
@@ -117,12 +117,7 @@ app.put('/api/users/:user', (req, res) => {
     
 })
 
-
-
-
-//------------------------------------------------------------
-
-
+//--------------------------Employees----------------------------------
 
 //Adding Employee
 app.post('/api/employees', (req, res) => {
@@ -193,4 +188,5 @@ app.delete('/api/employees/:id', (req, res) => {
         });
 })
 
+//Listen
 app.listen(port, () => console.log(`Server listening on port ${port}!`))

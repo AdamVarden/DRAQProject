@@ -17,14 +17,14 @@ class EmployeeDetails extends React.Component {
         this.DeleteEmployee = this.DeleteEmployee.bind(this);
 
     }
-
+    //Deletes the employee from the database
     DeleteEmployee(e) {
         console.log("Delete Clicked");
         axios.delete("http://localhost:4000/api/employees/" + this.props.employee._id).then().catch();
     
       }
 
-
+    //Displays the data in the database in a table
     render() {
         return (
             <Table style={{backgroundColor:"white"}} align = "center">

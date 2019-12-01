@@ -12,7 +12,15 @@ class Home extends React.Component {
           In the Employees Links you will find links to view all employees,
           <br></br>          
           where you have the option to add, delete and update the employees within the database.
-          <br></br>
+          <br></br> 
+          <h3>Employees Links</h3> 
+          In this section you can view the employees in the database. You can add, update and delete employees.
+          <br></br>          
+          <h3>User Links</h3>  
+          In this section you can add users who can access the Database. 
+          <br></br>          
+          If a user forgets their password as long as they remember their user name they can change both password and user name.
+          <br></br>          
         </p>
       </div>
     );

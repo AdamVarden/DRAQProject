@@ -23,6 +23,7 @@ class Update extends React.Component {
 
     }
 
+    //Hand the Submits
     handleEmpIDChange(e) {
         this.setState({ EmpID: e.target.value });
 
@@ -68,10 +69,12 @@ class Update extends React.Component {
             updateDate: this.state.time.toLocaleDateString()
         }
 
+        //Puts the new Information up to the database
         Axios.put('http://localhost:4000/api/employees/'+this.state._id,employeeObject)
             .then()
             .catch();
 
+            //Resets the State
         this.setState({
             EmpID: '',            
             FirstName: '',
@@ -88,6 +91,7 @@ class Update extends React.Component {
 
         Axios.get('http://localhost:4000/api/employees/' + this.props.match.params.id)
         .then((response)=>{
+            //Sets the state received from the database
             this.setState({
                 _id:response.data._id,
                 EmpID:response.data.empID,
@@ -103,6 +107,7 @@ class Update extends React.Component {
         .catch()
     }
 
+    //Gets the new details for the employee
     render() {
         return (
             <div className="App">

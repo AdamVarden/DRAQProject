@@ -9,13 +9,14 @@ class View extends React.Component {
     employees: []
   };
 
-
+  //Allows to refresh the page
   handleEntailmentRequest(e) {
     e.preventDefault();
 
+    //The reload function
     window.location.reload(false);
   }
-
+  //Gets the info from the database
   componentDidMount() {
     Axios.get('http://localhost:4000/api/employees')
       .then(response => {
@@ -25,7 +26,7 @@ class View extends React.Component {
         console.log(error);
       })
   }
-
+  //Outputs the employees Rendering through Employees
   render() {
     return (
 

@@ -15,6 +15,7 @@ class LogIn extends React.Component {
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
     }
 
+    //Handles Submit
     handleUserChange(e) {
         this.setState({ User: e.target.value });
 
@@ -34,22 +35,24 @@ class LogIn extends React.Component {
             password: this.state.Password,
         }
 
-
+        //Gets the array for the specific User 
         Axios.get('http://localhost:4000/api/users/'+this.state.User+'/'+this.state.Password,userObject)
         .then(response => {
-
+            //Ensures the there is an array
             if (response.data.length > 0) 
             {
                 console.log("Logged In");
                 this.props.history.push('/home')
             }
+            //Alerts User that input is invalid
             else
             {
                 alert("Not logged in");
             }
           })
         .catch();
-
+        
+        //Resets the State
         this.setState({
             User: '',
             Password: '',

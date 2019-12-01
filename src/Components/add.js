@@ -21,6 +21,7 @@ class Add extends React.Component {
 
     }
 
+    //Handles the Submit
     handleEmpIDChange(e) {
         this.setState({ EmpID: e.target.value });
 
@@ -66,10 +67,12 @@ class Add extends React.Component {
             updateDate: this.state.UpdateDate
         }
 
+        //Posts the new Employee with their Details
         Axios.post('http://localhost:4000/api/employees', employeeObject)
             .then()
             .catch();
 
+        //Resets the State
         this.setState({
             EmpID: '',            
             FirstName: '',
@@ -82,6 +85,7 @@ class Add extends React.Component {
         });
     }
 
+    //Gets the input from user
     render() {
         return (
             <div className="App">

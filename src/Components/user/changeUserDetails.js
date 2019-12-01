@@ -9,12 +9,13 @@ class ChangeUserDetails extends React.Component {
     constructor(props) {
 
         super(props);
-        this.state = { User: '', Password:'', oldUserName:''  };
+        this.state = { User: '', Password: '', oldUserName: '' };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUserChange = this.handleUserChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
     }
 
+    //Handling the Change
     handleUserChange(e) {
         this.setState({ User: e.target.value });
 
@@ -25,7 +26,7 @@ class ChangeUserDetails extends React.Component {
 
     }
 
-    
+
     handleSubmit(e) {
         e.preventDefault();
 
@@ -35,32 +36,34 @@ class ChangeUserDetails extends React.Component {
         }
 
 
-        Axios.put('http://localhost:4000/api/users/'+this.state.oldUserName,userObject)
-        .then()
-        .catch();
+        Axios.put('http://localhost:4000/api/users/' + this.state.oldUserName, userObject)
+            .then()
+            .catch();
 
     }
 
     componentDidMount() {
 
         Axios.get('http://localhost:4000/api/users/' + this.props.match.params.user)
-        .then((response)=>{  
+            .then((response) => {
+                
+                this.setState({
+                    oldUserName: response.data.user,
+                    User: response.data.user,
+                    Password: response.data.password
+                })
 
-            this.setState({
-            oldUserName:response.data.user,
-            User:response.data.user,
-            Password:response.data.password 
+                console.log(this.props.match.params.user);
             })
-
-            console.log(this.props.match.params.user);
-        })
-        .catch()
+            .catch()
 
     }
+
+    //Getting the users Details
     render() {
         return (
-            <div  className="logIn">
-                <h3 >User Login</h3>
+            <div className="logIn">
+                <h3 >Edit Your User Login</h3>
                 <div >
                     <Form onSubmit={this.handleSubmit}>
 
@@ -87,7 +90,7 @@ class ChangeUserDetails extends React.Component {
                         <div>
                             <input
                                 type="submit"
-                                value="Login"
+                                value="Update"
                             ></input>
                         </div>
                     </Form>

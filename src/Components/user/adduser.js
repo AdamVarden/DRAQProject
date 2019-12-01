@@ -8,13 +8,14 @@ class AddUser extends React.Component {
     constructor(props) {
 
         super(props);
-        this.state = { User: '', Password:''  };
+        this.state = { User: '', Password: '' };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUserChange = this.handleUserChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
 
     }
 
+    //Handling the Submits
     handleUserChange(e) {
         this.setState({ User: e.target.value });
 
@@ -33,10 +34,11 @@ class AddUser extends React.Component {
             password: this.state.Password,
         }
 
-        Axios.post('http://localhost:4000/api/user', userObject)
+        //Posting to the Database
+        Axios.post('http://localhost:4000/api/users', userObject)
             .then()
             .catch();
-
+        //Resting the State
         this.setState({
             User: '',
             Password: '',
@@ -44,6 +46,7 @@ class AddUser extends React.Component {
         });
     }
 
+    //Getting the Users Details
     render() {
         return (
             <div className="App">
@@ -74,7 +77,7 @@ class AddUser extends React.Component {
                         <div>
                             <input
                                 type="submit"
-                                value="Add Employee"
+                                value="Add User"
                             ></input>
                         </div>
                     </Form>
